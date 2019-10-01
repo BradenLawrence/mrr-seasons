@@ -1,4 +1,5 @@
 import React from 'react'
+import './SeasonDisplay.css'
 
 const seasonConfig = {
   summer: {
@@ -22,9 +23,9 @@ const SeasonDisplay = (props) => {
   let season = getSeason(props.lat, new Date().getMonth())
   const { text, iconName } = seasonConfig[season]
   return(
-    <div>
+    <div className={'SeasonDisplay ' + season}>
+      <i className={ 'massive ' + iconName + ' icon' }></i>
       <h1>{ text }</h1>
-      <i className={ iconName + ' icon' }></i>
     </div>
   )
 }
