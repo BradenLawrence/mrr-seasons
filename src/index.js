@@ -19,14 +19,20 @@ class App extends React.Component {
     )
   }
 
+  renderContent() {
+    if(this.state.errMsg && !this.state.lat) {
+      return <div>Error: { this.state.errMsg }</div>
+    } else if(this.state.lat && !this.state.errMsg) {
+      return <SeasonDisplay lat={ this.state.lat } />
+    } else {
+      return <LoadingSpinner message="Awaiting permission for user's location."/>
+    }
+  }
+
   render() {
-      if(this.state.errMsg && !this.state.lat) {
-        return <div>Error: { this.state.errMsg }</div>
-      } else if(this.state.lat && !this.state.errMsg) {
-        return <SeasonDisplay lat={ this.state.lat } />
-      } else {
-        return <LoadingSpinner message="Awaiting permission for user's location."/>
-      }
+     <div className="content">
+       {this.renderContent()}
+     </div> 
   }
 }
 
