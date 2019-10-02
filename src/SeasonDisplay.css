@@ -4,3 +4,9 @@
   align-items: center;
   height: 100vh;
 }
+.SeasonDisplay.summer {
+  color: red;
+}
+.SeasonDisplay.winter {
+  color: blue;
+}
